@@ -133,3 +133,5 @@ Data/data.yaml
 Data/Data.zip
 runs/train_detect_runs.zip
 artifacts/*
+artifacts
+log
