@@ -9,6 +9,7 @@ project_name= "SignLanguage"
 list_of_files=[
     ".github/workflows/.gitkeep",
     "Data/.gitkeep",
+    "data_input/.gitkeep",
     "docs/.gitkeep",
     "Notebook/.gitkeep",
     "runs/.gitkeep",
@@ -42,6 +43,8 @@ list_of_files=[
     "setup.py"
 
 ]
+
+#{constant->entity->components->pipeline->app.py}
 
 for filepath in list_of_files:
     filepath=Path(filepath)
