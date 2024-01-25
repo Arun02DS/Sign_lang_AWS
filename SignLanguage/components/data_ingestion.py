@@ -11,7 +11,6 @@ from six.moves import urllib
 class DataIngestion:
     def __init__(self,data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):
         try:
-            logging.info(f"{'*_|-|_*' * 4} DATA INGESTION {'*_|-|_*' * 4}" )
             self.data_ingestion_config=data_ingestion_config
         except Exception as e:
             raise SignException(e,sys)

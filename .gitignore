@@ -127,11 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-Data/test/
-Data/train/
-Data/data.yaml
-Data/Data.zip
 runs/train_detect_runs.zip
 artifacts/*
 artifacts
 log
+Data
+Data/*
+Data.zip
