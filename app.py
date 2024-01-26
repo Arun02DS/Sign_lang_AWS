@@ -4,4 +4,4 @@ from  SignLanguage.pipeline.training_pipeline import TrainPipeline
 
 obj = TrainPipeline()
 obj.run_pipeline()
-print("Data Validation is done")
+print("Model Training is done")

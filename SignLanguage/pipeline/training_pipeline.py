@@ -2,17 +2,21 @@ from SignLanguage.logger import logging
 from SignLanguage.exception import SignException
 import os, sys
 from SignLanguage.entity.config_entity import (DataIngestionConfig,
-                                               DataValidationConfig)
+                                               DataValidationConfig,
+                                               ModelTrainerConfig)
 from SignLanguage.entity.artifact_entity import (DataIngestionArtifact,
-                                                 DataValidationArtifact)
+                                                 DataValidationArtifact,
+                                                 ModelTrainerArtifact)
 from SignLanguage.components.data_ingestion import DataIngestion
 from SignLanguage.components.data_validation import DataValidation
+from SignLanguage.components.model_trainer import ModelTrainer
 
 
 class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config=DataValidationConfig()
+        self.model_Trainer_config=ModelTrainerConfig()
 
     
     def start_data_ingestion(self)->DataIngestionArtifact:
@@ -50,12 +54,31 @@ class TrainPipeline:
             return data_validation_artifact
         except Exception as e:
             raise SignException(e,sys)
+        
+    def start_model_trainer(self,)->ModelTrainerArtifact:
+        try:
+            logging.info(f"{'*_|-|_*' * 5} MODEL TRAINER {'*_|-|_*' * 5}" )
+            logging.info(f"Entered Model trainer in Training pipeline")
+            model_trainer=ModelTrainer(
+                model_Trainer_config=self.model_Trainer_config,
+            )
 
+            model_Trainer_artifact=model_trainer.initiate_model_trainer()
+            return model_Trainer_artifact
+        
+        except Exception as e:
+            raise SignException(e,sys)
         
     def run_pipeline(self)->None:
         try:
             data_ingestion_artifact=self.start_data_ingestion()
             data_validation_artifact=self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            if data_validation_artifact.validation_status==True:
+                model_Trainer_artifact = self.start_model_trainer()
+
+            else:
+                raise Exception("Your data is not in current format")
+            
 
 
         except Exception as e:
