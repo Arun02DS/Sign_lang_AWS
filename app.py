@@ -4,4 +4,4 @@ from  SignLanguage.pipeline.training_pipeline import TrainPipeline
 
 obj = TrainPipeline()
 obj.run_pipeline()
-print("Model Training is done")
+print("Model Pushed to S3 Bucket")
