@@ -10,7 +10,7 @@
 
 ###Project Architecture
 
-[!image](https://github.com/Arun02DS/Sign_lang_AWS/blob/a5c7fb082e2f2709c1cc598b85b936cc2f0a4673/docs/Project_flowchart.png)
+![image](https://github.com/Arun02DS/Sign_lang_AWS/blob/a5c7fb082e2f2709c1cc598b85b936cc2f0a4673/docs/Project_flowchart.png)
 
 ### AWS Deployment with github actions
 
