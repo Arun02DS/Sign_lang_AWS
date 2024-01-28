@@ -36,5 +36,5 @@ Model Pusher related constant start with MODEL_PUSHER VAR NAME
 
 """
 
-BUCKET_NAME = ""
+BUCKET_NAME = "sign-arun-lang"
 S3_MODEL_NAME = "best.pt"

@@ -4,7 +4,6 @@ import os
 import sys
 import yaml
 import base64
-from typing import Any
 
 def read_yaml_file(file_path:str)->dict:
     """
@@ -52,7 +51,7 @@ def decodeImage(imgstring,filename):
     """
     try:
         imgdata= base64.b64decode(imgstring)
-        with open("./Data/" + filename + 'wb') as f:
+        with open("./Data/" + filename , 'wb') as f:
             f.write(imgdata)
             f.close()
 
@@ -60,7 +59,7 @@ def decodeImage(imgstring,filename):
         raise SignException(e,sys)
     
 
-def encodeImageIntoBase64(croppedImagePath)->Any:
+def encodeImageIntoBase64(croppedImagePath):
     """
     Description: This function reads the binary data from the file, then encodes it into base64.
 
@@ -68,7 +67,8 @@ def encodeImageIntoBase64(croppedImagePath)->Any:
 
     """
     try:
-        with open(croppedImagePath,"rb") as f:
+        with open(croppedImagePath, "rb") as f:
+
             return base64.b64encode(f.read())
         
     except Exception as e:
